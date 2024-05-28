@@ -157,7 +157,7 @@ with modelColumn:
 		
 			bar1.empty()
 
-			st.success(f"Models for {table.leadhead.replace("_"," ")} are calculated.")
+			st.success(f"Models for {table.leadhead} are calculated.")
 
 	dc.Update.model(st.session_state,analysis(view.frame),itemname)
 
