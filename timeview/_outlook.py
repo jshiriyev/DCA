@@ -76,24 +76,3 @@ class Outlook(TimeView):
 		frame = frame.reset_index()
 
 		return TimeView(frame)(lhead,dhead)
-
-if __name__ == "__main__":
-
-	import pandas as pd
-
-	frame = pd.read_excel(r"C:\Users\3876yl\OneDrive - BP\Documents\ACG_decline_curve_analysis.xlsx")
-
-	view = Outlook(frame)
-
-	print(view.datetimes)
-
-	print(view.mindate('Date'),type(view.mindate('Date')))
-	print(view.maxdate('Date'))
-
-	# print(view.mindate('Date').date())
-
-	# print(Outlook.items(df,'Field'))
-	# print(type(Outlook.items(df,'Field').tolist()))
-
-
-

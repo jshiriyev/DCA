@@ -88,19 +88,3 @@ class TimeView():
     def limit(self):
         """Returns the datetime.date limits observed in the date column."""
         return (self.mindate,self.maxdate)
-
-if __name__ == "__main__":
-
-    tv = TimeView()
-
-    print(tv.frame)
-    print(tv.datehead)
-    print(tv.leadhead)
-
-    print(tv('Date').datehead)
-
-    print(tv.empty)
-    print(tv.dates)
-    print(tv.mindate)
-    print(tv.maxdate)
-    print(tv.limit)

@@ -103,39 +103,3 @@ class Analysis():
 			frame = pandas.concat([frame,minor])
 
 		return frame.reset_index(drop=True)
-
-if __name__ == "__main__":
-
-	import pandas as pd
-
-	df = pd.read_excel(r"C:\Users\3876yl\OneDrive - BP\Documents\ACG_decline_curve_analysis.xlsx")
-
-	print(df)
-
-	print(df.columns)
-
-	# print(df.groupby('Date').sum('Actual Oil, Mstb/d'))
-
-	# print(df.columns)
-
-	# print(df['Well'].unique())
-
-	# print(df[df['Well']=='D32'])
-
-	# print((df['Date']-df['Date'][0])*5)
-
-	# print(df.head)
-
-	# print(dir(df))
-
-	# print(
-	# 	Forward.days(5)
-	# 	)
-
-	# print(
-	# 	Forward.days(datetime.date(2022,2,3),datetime.date(2022,2,7))
-	# 	)
-
-	# print(
-	# 	Forward.days(datetime.date(2022,2,3),datetime.date(2022,2,7),12)
-	# 	)

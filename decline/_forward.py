@@ -34,14 +34,3 @@ class Forward():
 	def __decline(self,days:numpy.ndarray):
 		"""Returns the multiplication of decline0 and days."""
 		return self.model.decline0*numpy.asarray(days)
-
-if __name__ == "__main__":
-
-	model = Model()
-
-	print(Forward(model).run([1,2,3]))
-
-	fw = Forward(model)
-
-	for d in dir(fw):
-		print(d)

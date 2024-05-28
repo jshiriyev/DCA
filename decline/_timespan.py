@@ -105,13 +105,3 @@ class TimeSpan:
 			index = index.append(space)
 
 		return TimeSpan(index.to_series())
-
-if __name__ == "__main__":
-
-	span = TimeSpan.get(
-		(datetime.date(2021,1,1),datetime.date(2021,2,1)),
-		(datetime.date(2024,1,1),datetime.date(2024,2,1)),
-		periods=4
-	)
-
-	print(span.series)

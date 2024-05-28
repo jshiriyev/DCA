@@ -55,10 +55,3 @@ class Session():
 			self.state[key] = value
 
 		return self.state
-
-if __name__ == "__main__":
-
-	ss = Session(mindate=datetime.date(2008,1,1))
-
-	print(ss.mindate)
-	print(ss.maxdate)
