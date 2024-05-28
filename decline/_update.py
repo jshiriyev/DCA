@@ -122,41 +122,6 @@ class Update():
 		return frame.to_csv(index=False).encode('utf-8')
 
 	@staticmethod
-	def load_download(report:str,filename:str):
-		"""
-		Generates a link to download the given report.
-		
-		Params:
-		------
-		report	 : The csv string to be downloaded.
-		filename : Filename and extension of file. e.g. mydata.csv,
-		
-		Returns:
-		-------
-		(str)	 : The anchor tag to download object_to_download
-
-		"""
-
-		try:
-			# some strings <-> bytes conversions necessary here
-			b64 = base64.b64encode(report.encode()).decode()
-		except AttributeError as e:
-			b64 = base64.b64encode(report).decode()
-
-		dl_link = f"""
-		<html>
-		<head>
-		<title>Start Auto Download file</title>
-		<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
-		<script>
-		$('<a href="data:text/csv;base64,{b64}" download="{filename}">')[0].click()
-		</script>
-		</head>
-		</html>
-		"""
-		return dl_link
-
-	@staticmethod
 	def flag(state,*args):
 
 		for arg in args:

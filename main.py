@@ -1,5 +1,7 @@
 import datetime
 
+import sys
+
 import time
 
 import pandas
@@ -21,6 +23,9 @@ st.session_state = dc.Session(st.session_state).set()
 
 if "models" not in st.session_state:
 	st.session_state["models"] = {}
+
+if "output" not in st.session_state:
+	st.session_state["output"] = pandas.DataFrame().to_csv(index=False).encode('utf-8')
 
 with st.sidebar:
 
@@ -231,13 +236,13 @@ with modelColumn:
 
 	forecast_curve = dc.Update.load_forecast_curve(st.session_state)
 
-	DownloadButton = st.button(
-		label = 'Download Forecast',
-		help = "Download predicted rates for all group items.",
+	RunGroup = st.button(
+		label = 'Run Group Forecast',
+		help = "Calculates predicted rates for all group items.",
 		use_container_width = True,
 		)
 
-	if DownloadButton:
+	if RunGroup:
 
 		if len(st.session_state.models)==0:
 			st.warning('No model to forecast.')
@@ -264,14 +269,22 @@ with modelColumn:
 
 			time.sleep(1)
 
-			output = frame.to_csv(index=False).encode('utf-8')
-
-			components.html(
-				dc.Update.load_download(output,f"{table.leadhead}_forecast.csv"),
-				height=0,
-			)
+			st.session_state.output = frame.to_csv(index=False).encode('utf-8')
 
 			bar2.empty()
+
+	if sys.getsizeof(st.session_state.output)>35:
+		disabled = False
+	else:
+		disabled = True
+
+	DownloadButton = st.download_button(
+		label = "Download Forecast",
+		data = st.session_state.output,
+		file_name = f"{table.leadhead}_forecast.csv",
+		disabled = disabled,
+		use_container_width = True,
+		)
 
 with displayColumn:
 
