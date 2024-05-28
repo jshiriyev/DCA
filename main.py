@@ -1,10 +1,5 @@
 import datetime
 
-import sys
-
-# sys.path.append(r'C:\Users\3876yl\Documents\prodpy')
-sys.path.append(r'C:\Users\user\Documents\GitHub\prodpy')
-
 import time
 
 import pandas
@@ -15,9 +10,9 @@ import streamlit as st
 
 import streamlit.components.v1 as components
 
-from prodpy import timeview as tv
+import timeview as tv
 
-from prodpy import decline as dc
+import decline as dc
 
 st.set_page_config(layout='wide',page_title='Decline Curve Analysis')
 
