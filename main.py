@@ -288,7 +288,25 @@ with modelColumn:
 
 with displayColumn:
 
-	if not view.frame.empty:
+	if view.frame.empty:
+
+		st.title("Welcome to the Decline Curve Analysis App.")
+		st.markdown("""
+			### Please upload your data to get started.
+
+			1. **Upload your production test file** using the sidebar.
+			2. **Select the necessary features** for analysis.
+			3. **Generate the forecast** in the analysis column to the right.
+
+			### Tips for Best Results:
+			- Select relevant features that significantly impact your analysis.
+
+			### Need Help?
+			- Contact me at shiriyevcavid@gmail.com.
+
+			""")
+
+	else:
 
 		st.header(f'{itemname} Rates')
 
